@@ -1,0 +1,36 @@
+#! api-deployment.yaml
+# Generated code, do not edit
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: api
+    namespace: f1-telemetry-api
+    labels:
+        com.docker.compose.project: f1_telemetry_api
+        com.docker.compose.service: api
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            com.docker.compose.project: f1_telemetry_api
+            com.docker.compose.service: api
+    strategy:
+        type: Recreate
+    template:
+        metadata:
+            labels:
+                com.docker.compose.project: f1_telemetry_api
+                com.docker.compose.service: api
+                com.docker.compose.network.default: "true"
+        spec:
+            restartPolicy: Always
+            containers:
+                - name: f1-telemetry-fast-api
+                  image: f1_telemetry_api-api
+                  imagePullPolicy: IfNotPresent
+                  env:
+                    - name: DATABASE_URL
+                      value: "postgresql://f1user:f1password@f1_telemetry_db:5432/f1_telemetry"
+                  ports:
+                    - name: api-8000
+                      containerPort: 8000

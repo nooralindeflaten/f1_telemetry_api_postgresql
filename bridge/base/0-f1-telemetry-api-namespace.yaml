@@ -1,0 +1,8 @@
+#! 0-f1-telemetry-api-namespace.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: f1-telemetry-api
+    labels:
+        com.docker.compose.project: f1_telemetry_api

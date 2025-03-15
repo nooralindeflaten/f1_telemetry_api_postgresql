@@ -5,6 +5,14 @@
 - Schemas for verifying data and orm model handling
 - crud functions for sqlalchemy-based sql functions
 - Frontend React + Vite
+
+## Request flow
+- A client (browser, frontend, or API call) sends a request to an endpoint (e.g., /circuits/).
+- The FastAPI router calls a function from crud.py.
+- The CRUD function runs a SQLAlchemy query to fetch or modify data.
+- SQLAlchemy sends the query to PostgreSQL via the database session.
+- PostgreSQL executes the query and returns the result.
+- The data is serialized using a Pydantic schema (from schemas.py) and returned as a response.
   
 ## The code structure of a PostgreSQL database based FastAPI
 🚀 Features

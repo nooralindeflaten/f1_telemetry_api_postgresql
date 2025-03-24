@@ -96,7 +96,13 @@
      pip install alembic
      alembic init alembic
         ```
-  
+
+## Demo
+
+
+https://github.com/user-attachments/assets/19a8f4de-14ab-4187-aa04-840d3c594407
+
+
 ## 🛠️ Usage
 - API Endpoints, routers
 - Some examples
